@@ -1,0 +1,56 @@
+configure(allprojects) { project ->
+
+	repositories {
+		mavenLocal()
+		mavenCentral()
+	}
+
+	group 	= "com.willydupreez"
+	version = "0.0.1-SNAPSHOT"
+
+	ext.commonsDaemonVersion			= "1.0.15"
+	ext.junitVersion					= "4.11"
+	ext.log4jVersion					= "2.0"
+
+	apply plugin: "java"
+	apply plugin: "maven-publish"
+	apply plugin: "eclipse"
+
+	configurations.all {
+		resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+	}
+
+	compileJava {
+		sourceCompatibility=1.8
+		targetCompatibility=1.8
+	}
+
+	compileTestJava {
+		sourceCompatibility=1.8
+		targetCompatibility=1.8
+	}
+
+	dependencies {
+		testCompile("junit:junit:${junitVersion}")
+	}
+
+	task sourcesJar(type: Jar, dependsOn: classes) {
+		classifier = 'sources'
+		from sourceSets.main.allSource
+	}
+
+	task javadocJar(type: Jar, dependsOn: javadoc) {
+		classifier = 'javadoc'
+		from javadoc.destinationDir
+	}
+
+}
+
+project("aphorism-logging") {
+	description = "Application Logging Utilities"
+
+	dependencies {
+		compile("org.apache.logging.log4j:log4j-api:${log4jVersion}")
+		compile("org.apache.logging.log4j:log4j-core:${log4jVersion}")
+	}
+}

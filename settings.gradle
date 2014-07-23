@@ -1,0 +1,13 @@
+rootProject.name = "aphorism"
+
+include "aphorism-config"
+include "aphorism-daemon"
+include "aphorism-db"
+include "aphorism-db-mgmt"
+include "aphorism-hal"
+include "aphorism-logging"
+include "aphorism-mom"
+include "aphorism-rest"
+include "aphorism-server"
+include "aphorism-server-rest"
+include "aphorism-util"
