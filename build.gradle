@@ -46,15 +46,19 @@ configure(allprojects) { project ->
 
 }
 
-project("aphorism-util") {
-	description = "Utilities"
-}
-
 project("aphorism-config") {
 	description = "Utilities"
 
 	dependencies {
 		compile(project(":aphorism-util"))
+	}
+}
+
+project("aphorism-daemon") {
+	description = "Application Daemon"
+
+	dependencies {
+		compile(project(":aphorism-config"))
 	}
 }
 
@@ -67,3 +71,6 @@ project("aphorism-logging") {
 	}
 }
 
+project("aphorism-util") {
+	description = "Utilities"
+}
