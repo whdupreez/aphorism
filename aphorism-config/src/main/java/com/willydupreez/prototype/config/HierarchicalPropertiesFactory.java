@@ -19,8 +19,6 @@ public class HierarchicalPropertiesFactory implements PropertiesFactory {
 		private Builder() {
 		}
 
-
-
 	}
 
 	public static Builder builder() {

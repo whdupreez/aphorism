@@ -8,6 +8,7 @@ import java.util.Optional;
 
 import com.willydupreez.prototype.config.ConfigurationException;
 import com.willydupreez.prototype.config.convert.BooleanConverter;
+import com.willydupreez.prototype.config.convert.EnumConverter;
 import com.willydupreez.prototype.config.convert.IntegerConverter;
 import com.willydupreez.prototype.config.convert.LongConverter;
 import com.willydupreez.prototype.config.convert.StringConverter;
@@ -16,6 +17,12 @@ import com.willydupreez.prototype.config.provider.PropertyProvider;
 import com.willydupreez.util.Beans;
 import com.willydupreez.util.Types;
 
+/**
+ *
+ * @author Willy du Preez
+ *
+ * TODO Find a better way to handle Enums
+ */
 public class DefaultPropertiesBeanBuilder implements PropertiesBeanBuilder {
 
 	private final List<TypeConverter<?>> typeConverters;
@@ -28,7 +35,7 @@ public class DefaultPropertiesBeanBuilder implements PropertiesBeanBuilder {
 				new LongConverter()));
 	}
 
-	public DefaultPropertiesBeanBuilder(List<TypeConverter<?>> typeConverters) {
+	public <E extends Enum<E>> DefaultPropertiesBeanBuilder(List<TypeConverter<?>> typeConverters) {
 		this.typeConverters = typeConverters;
 	}
 
@@ -65,6 +72,11 @@ public class DefaultPropertiesBeanBuilder implements PropertiesBeanBuilder {
 			if (typeConverter.getType().equals(propertyType)) {
 				return typeConverter.convertToType(value);
 			}
+		}
+		if (propertyType.isEnum()) {
+			@SuppressWarnings({ "unchecked", "rawtypes" })
+			EnumConverter enumConverter = new EnumConverter(propertyType);
+			return enumConverter.convertToType(value);
 		}
 		throw new ConfigurationException("No type converter registered for type: " + propertyType);
 	}
