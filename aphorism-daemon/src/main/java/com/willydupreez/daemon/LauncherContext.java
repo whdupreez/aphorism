@@ -1,3 +1,6 @@
+/**
+ * Copyright (c) 2014, Willy du Preez. All rights reserved.
+ */
 package com.willydupreez.daemon;
 
 import com.willydupreez.prototype.config.ConfigurationFactory;
