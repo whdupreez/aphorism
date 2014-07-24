@@ -1,6 +1,5 @@
 package com.willydupreez.prototype.config.provider;
 
-
 /**
  * Provides properties from system environment variables using
  * {@link System#getenv()}.

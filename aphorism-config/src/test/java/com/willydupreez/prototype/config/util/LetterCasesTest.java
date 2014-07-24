@@ -1,6 +1,6 @@
 package com.willydupreez.prototype.config.util;
 
-import static com.willydupreez.prototype.config.util.LetterCases.*;
+import static com.willydupreez.util.LetterCases.*;
 import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
 
