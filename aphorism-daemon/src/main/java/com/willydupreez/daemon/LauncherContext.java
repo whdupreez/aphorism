@@ -1,4 +1,4 @@
-package com.willydupreez.prototype.structure;
+package com.willydupreez.daemon;
 
 import com.willydupreez.prototype.config.ConfigurationFactory;
 
