@@ -21,10 +21,13 @@ import java.util.Properties;
  *
  * <pre>com.abc.db_conn.properties</pre>
  *
+ * Deprecated: use {@link DefaultConfigurationFactory} instead
+ *
  * @author Willy du Preez
  *
  */
-public class PathBasedPropertiesFactory implements PropertiesFactory {
+@Deprecated
+public class PathBasedPropertiesFactory implements ConfigurationFactory {
 
 	private Path etc;
 

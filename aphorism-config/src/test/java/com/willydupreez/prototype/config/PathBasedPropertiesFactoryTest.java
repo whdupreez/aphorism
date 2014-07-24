@@ -18,7 +18,7 @@ import com.willydupreez.prototype.config.testprops.UnsupportedTypeProperties;
 
 public class PathBasedPropertiesFactoryTest {
 
-	private PropertiesFactory factory;
+	private ConfigurationFactory factory;
 
 	@Before
 	public void before() {
