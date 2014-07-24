@@ -1,7 +1,7 @@
 /**
  * Copyright (c) 2014, Willy du Preez. All rights reserved.
  */
-package com.willydupreez.prototype.config.util;
+package com.willydupreez.util;
 
 import java.beans.PropertyDescriptor;
 import java.util.List;
