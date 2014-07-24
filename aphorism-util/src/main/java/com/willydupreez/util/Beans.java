@@ -1,4 +1,4 @@
-package com.willydupreez.prototype.config.util;
+package com.willydupreez.util;
 
 import java.beans.BeanInfo;
 import java.beans.IntrospectionException;

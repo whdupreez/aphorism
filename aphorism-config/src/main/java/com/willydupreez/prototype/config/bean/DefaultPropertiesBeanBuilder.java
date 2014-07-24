@@ -13,8 +13,8 @@ import com.willydupreez.prototype.config.convert.LongConverter;
 import com.willydupreez.prototype.config.convert.StringConverter;
 import com.willydupreez.prototype.config.convert.TypeConverter;
 import com.willydupreez.prototype.config.provider.PropertyProvider;
-import com.willydupreez.prototype.config.util.Beans;
-import com.willydupreez.prototype.config.util.Types;
+import com.willydupreez.util.Beans;
+import com.willydupreez.util.Types;
 
 public class DefaultPropertiesBeanBuilder implements PropertiesBeanBuilder {
 

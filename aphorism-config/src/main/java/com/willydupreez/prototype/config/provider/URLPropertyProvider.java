@@ -1,7 +1,7 @@
 package com.willydupreez.prototype.config.provider;
 
-import static com.willydupreez.prototype.config.util.Resources.asPropertiesMap;
-import static com.willydupreez.prototype.config.util.Resources.fromUri;
+import static com.willydupreez.util.Resources.asPropertiesMap;
+import static com.willydupreez.util.Resources.fromUri;
 
 import java.net.URL;
 import java.util.Optional;

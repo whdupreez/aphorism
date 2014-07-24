@@ -10,6 +10,8 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
+import com.willydupreez.util.Beans;
+
 public class BeansTest {
 
 	public class Bean {

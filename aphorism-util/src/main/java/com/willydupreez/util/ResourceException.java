@@ -1,4 +1,4 @@
-package com.willydupreez.prototype.config.util;
+package com.willydupreez.util;
 
 public class ResourceException extends RuntimeException {
 

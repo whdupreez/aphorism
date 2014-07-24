@@ -1,7 +1,7 @@
 package com.willydupreez.prototype.config.provider;
 
-import static com.willydupreez.prototype.config.util.Resources.asPropertiesMap;
-import static com.willydupreez.prototype.config.util.Resources.fromPath;
+import static com.willydupreez.util.Resources.asPropertiesMap;
+import static com.willydupreez.util.Resources.fromPath;
 
 import java.nio.file.Path;
 

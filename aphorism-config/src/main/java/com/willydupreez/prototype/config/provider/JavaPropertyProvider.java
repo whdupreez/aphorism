@@ -1,6 +1,6 @@
 package com.willydupreez.prototype.config.provider;
 
-import com.willydupreez.prototype.config.util.Resources;
+import com.willydupreez.util.Resources;
 
 /**
  * Provides Java properties supplied using the -D environment

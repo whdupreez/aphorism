@@ -46,6 +46,18 @@ configure(allprojects) { project ->
 
 }
 
+project("aphorism-util") {
+	description = "Utilities"
+}
+
+project("aphorism-config") {
+	description = "Utilities"
+
+	dependencies {
+		compile(project(":aphorism-util"))
+	}
+}
+
 project("aphorism-logging") {
 	description = "Application Logging Utilities"
 
@@ -54,3 +66,4 @@ project("aphorism-logging") {
 		compile("org.apache.logging.log4j:log4j-core:${log4jVersion}")
 	}
 }
+

@@ -1,4 +1,4 @@
-package com.willydupreez.prototype.config.util;
+package com.willydupreez.util;
 
 import java.io.File;
 import java.io.InputStreamReader;
