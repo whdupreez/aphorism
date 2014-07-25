@@ -1,5 +1,6 @@
 rootProject.name = "aphorism"
 
+include "aphorism-app"
 include "aphorism-config"
 include "aphorism-daemon"
 include "aphorism-db"
