@@ -10,6 +10,7 @@ configure(allprojects) { project ->
 
 	ext.commonsDaemonVersion			= "1.0.15"
 	ext.junitVersion					= "4.11"
+	ext.gradleVersion					= "2.0"
 	ext.log4jVersion					= "2.0"
 
 	apply plugin: "java"
@@ -62,6 +63,25 @@ project("aphorism-daemon") {
 	}
 }
 
+project("aphorism-gradle-app-plugin") {
+	description = "Aphorism Application - Gradle Plugin"
+
+	apply plugin: "groovy"
+
+	repositories {
+		maven {
+			url "http://repo.gradle.org/gradle/libs-releases-local"
+		}
+	}
+
+	dependencies {
+		compile gradleApi()
+		compile localGroovy()
+		compile("org.gradle:gradle-core:${gradleVersion}")
+		compile("org.gradle:gradle-tooling-api:${gradleVersion}")
+	}
+}
+
 project("aphorism-logging") {
 	description = "Application Logging Utilities"
 
@@ -73,4 +93,8 @@ project("aphorism-logging") {
 
 project("aphorism-util") {
 	description = "Utilities"
+}
+
+task wrapper(type: Wrapper) {
+	gradleVersion = "2.0"
 }
