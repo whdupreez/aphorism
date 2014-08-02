@@ -10,6 +10,9 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
+import com.willydupreez.aphorism.config.convert.EnumConverter;
+import com.willydupreez.aphorism.config.convert.TypeConversionException;
+
 public class EnumConverterTest {
 
 	public static enum TestEnum {

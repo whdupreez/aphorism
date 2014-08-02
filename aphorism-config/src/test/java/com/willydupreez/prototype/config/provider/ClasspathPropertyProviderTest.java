@@ -8,6 +8,8 @@ import static org.junit.Assert.assertThat;
 
 import org.junit.Test;
 
+import com.willydupreez.aphorism.config.provider.ClasspathPropertyProvider;
+
 public class ClasspathPropertyProviderTest {
 
 	private static final String LOCATION = "/classpath/cp-test.properties";

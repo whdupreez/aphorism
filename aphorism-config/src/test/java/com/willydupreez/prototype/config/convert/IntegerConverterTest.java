@@ -10,6 +10,9 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
+import com.willydupreez.aphorism.config.convert.IntegerConverter;
+import com.willydupreez.aphorism.config.convert.TypeConversionException;
+
 public class IntegerConverterTest {
 
 	@Rule

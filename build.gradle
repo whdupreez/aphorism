@@ -5,16 +5,18 @@ configure(allprojects) { project ->
 		mavenCentral()
 	}
 
-	group 	= "com.willydupreez"
+	group 	= "com.willydupreez.aphorism"
 	version = "0.0.1-SNAPSHOT"
 
+	ext.commonsBeanUtilsVersion			= "1.8.3"
 	ext.commonsDaemonVersion			= "1.0.15"
+	ext.jacksonVersion					= "2.4.1"
 	ext.junitVersion					= "4.11"
 	ext.gradleVersion					= "2.0"
 	ext.log4jVersion					= "2.0"
 
 	apply plugin: "java"
-	apply plugin: "maven-publish"
+	apply plugin: "maven"
 	apply plugin: "eclipse"
 
 	configurations.all {
@@ -79,6 +81,20 @@ project("aphorism-gradle-app-plugin") {
 		compile localGroovy()
 		compile("org.gradle:gradle-core:${gradleVersion}")
 		compile("org.gradle:gradle-tooling-api:${gradleVersion}")
+	}
+}
+
+project("aphorism-hal") {
+	description = "JSON HAL (Hypertext Application Language)"
+
+	dependencies {
+		compile(project(":aphorism-util"))
+
+		compile("commons-beanutils:commons-beanutils:${commonsBeanUtilsVersion}")
+
+		compile("com.fasterxml.jackson.core:jackson-core:${jacksonVersion}")
+		compile("com.fasterxml.jackson.core:jackson-annotations:${jacksonVersion}")
+		compile("com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}")
 	}
 }
 

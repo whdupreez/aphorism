@@ -10,6 +10,9 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.willydupreez.aphorism.config.provider.JavaPropertyProvider;
+import com.willydupreez.aphorism.config.provider.PrefixedPropertyProvider;
+
 public class PrefixedPropertyProviderTest {
 
 	private static final String PREFIX = "PREFIX_";

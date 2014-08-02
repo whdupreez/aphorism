@@ -10,6 +10,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.willydupreez.aphorism.config.provider.JavaPropertyProvider;
+
 public class JavaPropertyProviderTest {
 
 	private static final String KEY = "system.prop.test";

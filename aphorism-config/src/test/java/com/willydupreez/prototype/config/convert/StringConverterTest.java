@@ -8,6 +8,8 @@ import static org.hamcrest.CoreMatchers.*;
 
 import org.junit.Test;
 
+import com.willydupreez.aphorism.config.convert.StringConverter;
+
 public class StringConverterTest {
 
 	private static final String PROPERTY = "property";

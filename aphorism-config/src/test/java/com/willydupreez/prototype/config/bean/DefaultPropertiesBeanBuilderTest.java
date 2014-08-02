@@ -15,9 +15,10 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.willydupreez.prototype.config.provider.JavaPropertyProvider;
-import com.willydupreez.prototype.config.provider.MapPropertyProvider;
-import com.willydupreez.prototype.config.provider.PropertyProvider;
+import com.willydupreez.aphorism.config.bean.DefaultPropertiesBeanBuilder;
+import com.willydupreez.aphorism.config.provider.JavaPropertyProvider;
+import com.willydupreez.aphorism.config.provider.MapPropertyProvider;
+import com.willydupreez.aphorism.config.provider.PropertyProvider;
 import com.willydupreez.prototype.config.testprops.DefaultTestProperties;
 
 public class DefaultPropertiesBeanBuilderTest {

@@ -11,6 +11,9 @@ import java.util.Arrays;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.willydupreez.aphorism.config.ConfigurationException;
+import com.willydupreez.aphorism.config.ConfigurationFactory;
+import com.willydupreez.aphorism.config.PathBasedPropertiesFactory;
 import com.willydupreez.prototype.config.testprops.DefaultTestProperties;
 import com.willydupreez.prototype.config.testprops.FileBasedProperties;
 import com.willydupreez.prototype.config.testprops.InvalidNameProps;

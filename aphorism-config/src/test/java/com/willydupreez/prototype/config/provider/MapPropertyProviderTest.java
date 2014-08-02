@@ -15,6 +15,8 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
+import com.willydupreez.aphorism.config.provider.MapPropertyProvider;
+
 public class MapPropertyProviderTest {
 
 	public static final String KEY_ONE = "provider.map.one";
