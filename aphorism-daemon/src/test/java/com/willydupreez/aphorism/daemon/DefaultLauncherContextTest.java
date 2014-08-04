@@ -16,7 +16,7 @@ public class DefaultLauncherContextTest {
 		String appHome = TestTools.getAppDirectory();
 		String ps = File.separator;
 
-		DefaultLauncherContext context = DefaultLauncherContext.builder()
+		DefaultApplicationEnvironment context = DefaultApplicationEnvironment.builder()
 				.applicationHome(appHome)
 				.build();
 

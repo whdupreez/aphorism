@@ -54,6 +54,7 @@ project("aphorism-app") {
 
 	dependencies {
 		compile(project(":aphorism-util"))
+		compile(project(":aphorism-daemon"))
 	}
 }
 

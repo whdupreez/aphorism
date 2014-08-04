@@ -13,7 +13,7 @@ import com.willydupreez.aphorism.config.DefaultConfigurationFactory;
 import com.willydupreez.aphorism.config.provider.ClasspathPropertyProvider;
 
 // TODO Turn Strings into Paths
-public class DefaultLauncherContext implements LauncherContext {
+public class DefaultApplicationEnvironment implements ApplicationEnvironment {
 
 	private static final String BIN_DIR 			= "bin";
 	private static final String DATA_DIR 			= "data";
@@ -38,9 +38,9 @@ public class DefaultLauncherContext implements LauncherContext {
 			return this;
 		}
 
-		public DefaultLauncherContext build() {
+		public DefaultApplicationEnvironment build() {
 
-			DefaultLauncherContext context = new DefaultLauncherContext();
+			DefaultApplicationEnvironment context = new DefaultApplicationEnvironment();
 
 			context.applicationHomeDirectory = appHomePath.toString();
 			context.binDirectory = resolveRelativeDir(BIN_DIR);
@@ -87,7 +87,7 @@ public class DefaultLauncherContext implements LauncherContext {
 
 	private ConfigurationFactory configurationFactory;
 
-	private DefaultLauncherContext() {
+	private DefaultApplicationEnvironment() {
 	}
 
 	@Override

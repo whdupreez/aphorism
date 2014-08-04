@@ -5,7 +5,7 @@ package com.willydupreez.aphorism.daemon;
 
 import com.willydupreez.aphorism.config.ConfigurationFactory;
 
-public interface LauncherContext  {
+public interface ApplicationEnvironment  {
 
 	String getApplicationHomeDirectory();
 	String getDataDirectory();

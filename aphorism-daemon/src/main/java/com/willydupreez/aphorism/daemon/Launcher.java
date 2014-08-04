@@ -3,6 +3,7 @@
  */
 package com.willydupreez.aphorism.daemon;
 
+import java.lang.reflect.Method;
 import java.util.Arrays;
 
 /**
@@ -15,6 +16,13 @@ import java.util.Arrays;
 // TODO Clean command
 public class Launcher {
 
+	private static final String ON_START_METHOD = "onStart";
+	private static final String ON_STOP_METHOD = "onStop";
+
+	private static final String CMD_RUN = "run";
+	private static final String CMD_START = "start";
+	private static final String CMD_STOP = "stop";
+
 	private static Launcher launcher;
 
 	public static void main(String[] args) throws Exception {
@@ -26,7 +34,7 @@ public class Launcher {
 		}
 
 		switch (args[0]) {
-		case "start":
+		case CMD_START:
 			if (launcher != null) {
 				throw new IllegalStateException("Failed to start. Launcher is not null.");
 			}
@@ -35,7 +43,7 @@ public class Launcher {
 			launcher.start();
 			break;
 
-		case "stop":
+		case CMD_STOP:
 			if (launcher == null) {
 				throw new IllegalStateException("Failed to stop. Launcher is null.");
 			}
@@ -48,7 +56,7 @@ public class Launcher {
 			}
 			break;
 
-		case "run":
+		case CMD_RUN:
 			launcher = new Launcher();
 			launcher.init(args);
 			launcher.consolePostInit();
@@ -61,7 +69,7 @@ public class Launcher {
 
 	}
 
-	private DefaultLauncherContext context;
+	private DefaultApplicationEnvironment context;
 	private LauncherProperties properties;
 	private LauncherThread thread;
 	private Object lock;
@@ -86,7 +94,7 @@ public class Launcher {
 		String appHome = args[1];
 
 		// 2. Create the launcher context.
-		this.context = DefaultLauncherContext.builder()
+		this.context = DefaultApplicationEnvironment.builder()
 				.applicationHome(appHome)
 				.build();
 
@@ -122,7 +130,17 @@ public class Launcher {
 
 		appClass = Class.forName(properties.getApplicationClass());
 		appInstance = appClass.newInstance();
-		appClass.getMethod("onStart").invoke(appInstance);
+		Method onStartMethod = appClass.getMethod(ON_START_METHOD);
+
+		// TODO Test
+		if (onStartMethod.getParameterCount() == 0) {
+			onStartMethod.invoke(appInstance);
+		} else if (onStartMethod.getParameterCount() == 1
+				&& onStartMethod.getParameterTypes()[0].equals(ApplicationEnvironment.class)) {
+			onStartMethod.invoke(appInstance, context);
+		} else {
+			throw new LauncherException("Invalid parameter types in Application class onStart method.");
+		}
 
 		synchronized (lock) {
 			thread.start();
@@ -132,7 +150,7 @@ public class Launcher {
 
 	public void stop() throws Exception {
 		// Inform the Thread to terminate the run(), close the ServerSockets
-		System.out.println("stop");
+		System.out.println(ON_STOP_METHOD);
 
 		if (appClass == null || appInstance == null) {
 			throw new IllegalStateException(
