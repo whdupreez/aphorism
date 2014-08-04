@@ -136,7 +136,7 @@ public class Launcher {
 
 		if (appClass == null || appInstance == null) {
 			throw new IllegalStateException(
-					"appClass [" + appClass + "] or appInstance [" + appInstance + "] cannot null.");
+					"appClass [" + appClass + "] or appInstance [" + appInstance + "] cannot be null.");
 		}
 		if (!run) {
 			throw new IllegalStateException("Thread not running");

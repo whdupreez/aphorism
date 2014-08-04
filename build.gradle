@@ -49,6 +49,14 @@ configure(allprojects) { project ->
 
 }
 
+project("aphorism-app") {
+	description = "Utilities"
+
+	dependencies {
+		compile(project(":aphorism-util"))
+	}
+}
+
 project("aphorism-config") {
 	description = "Utilities"
 

@@ -3,11 +3,16 @@
  */
 package com.willydupreez.aphorism.daemon;
 
+import static java.util.Arrays.asList;
+
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
 import com.willydupreez.aphorism.config.ConfigurationFactory;
+import com.willydupreez.aphorism.config.DefaultConfigurationFactory;
+import com.willydupreez.aphorism.config.provider.ClasspathPropertyProvider;
 
+// TODO Turn Strings into Paths
 public class DefaultLauncherContext implements LauncherContext {
 
 	private static final String BIN_DIR 			= "bin";
@@ -50,8 +55,8 @@ public class DefaultLauncherContext implements LauncherContext {
 			context.logDirectory = resolveRelativeDir(Paths.get(DATA_DIR, DATA_LOG_DIR).toString());
 			context.systemDataDirectory = resolveRelativeDir(Paths.get(DATA_DIR, DATA_SYSTEM_DIR).toString());
 
-			// TODO: Configuration Factory
-//			context.propertiesFactory = new DefaultPropertiesFactory(context.configDirectory);
+			context.configurationFactory = new DefaultConfigurationFactory(
+					asList(new ClasspathPropertyProvider("/launcher.properties")));
 
 			return context;
 		}

@@ -7,6 +7,7 @@ import java.nio.file.Files;
 import java.nio.file.InvalidPathException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.willydupreez.aphorism.config.bean.DefaultPropertiesBeanBuilder;
@@ -22,7 +23,7 @@ public class EnvironmentConfigurationFactory implements ConfigurationFactory {
 		private Path directory;
 
 		private PropertiesBeanBuilder builder;
-		private List<PropertyProvider> providers;
+		private List<PropertyProvider> providers = new ArrayList<>();
 
 		public Builder(String environment) {
 			this.environment = environment;

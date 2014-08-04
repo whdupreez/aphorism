@@ -102,10 +102,10 @@ goto :eof
  --LogLevel=%LOG_LEVEL% --LogPath="%LOG_PATH%" --LogPrefix=service^
  --StdOutput=auto --StdError=auto^
  --Classpath=%APP_HOME%\..\target\java-application-structure-0.0.1-SNAPSHOT.jar^
- --StartMode=jvm --StartClass=com.willydupreez.prototype.structure.Launcher^
+ --StartMode=jvm --StartClass=com.willydupreez.aphorism.daemon.Launcher^
  --StartParams start;"%APP_HOME%"^
  --StopParams stop^
- --StopMode=jvm --StopClass=com.willydupreez.prototype.structure.Launcher^
+ --StopMode=jvm --StopClass=com.willydupreez.aphorism.daemon.Launcher^
  --StopTimeout=%STOP_TIMEOUT%^
  --Startup=%STARTUP_MODE%^
  --PidFile=app-pid
