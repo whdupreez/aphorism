@@ -130,17 +130,9 @@ public class Launcher {
 
 		appClass = Class.forName(properties.getApplicationClass());
 		appInstance = appClass.newInstance();
-		Method onStartMethod = appClass.getMethod(ON_START_METHOD);
+		Method onStartMethod = appClass.getMethod(ON_START_METHOD, ApplicationEnvironment.class);
 
-		// TODO Test
-		if (onStartMethod.getParameterCount() == 0) {
-			onStartMethod.invoke(appInstance);
-		} else if (onStartMethod.getParameterCount() == 1
-				&& onStartMethod.getParameterTypes()[0].equals(ApplicationEnvironment.class)) {
-			onStartMethod.invoke(appInstance, context);
-		} else {
-			throw new LauncherException("Invalid parameter types in Application class onStart method.");
-		}
+		onStartMethod.invoke(appInstance, context);
 
 		synchronized (lock) {
 			thread.start();
